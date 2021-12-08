@@ -11,7 +11,7 @@ print(f'BASE_DIR: ${BASE_DIR}')
 # https://docs.djangoproject.com/en/dev/ref/settings/#std:setting-SECRET_KEY
 
 # https://docs.djangoproject.com/en/dev/ref/settings/#debug
-DEBUG = os.environ.get('DEBUG', False)  # False
+DEBUG = os.environ.get('DEBUG', True)  # True
 # https://docs.djangoproject.com/en/dev/ref/settings/#allowed-hosts
 ALLOWED_HOSTS = ["localhost", "0.0.0.0", "127.0.0.1", "https://tdcm-django-test.herokuapp.com/"]
 
@@ -150,7 +150,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
 # https://docs.djangoproject.com/en/dev/ref/settings/#static-root
-STATIC_ROOT = str(BASE_DIR.joinpath('static'))
+STATIC_ROOT = str(BASE_DIR.joinpath('staticfiles'))
 print(f'STATICFILES_DIRS: ${STATIC_ROOT}')
 # https://docs.djangoproject.com/en/dev/ref/settings/#static-url
 STATIC_URL = '/static/'
