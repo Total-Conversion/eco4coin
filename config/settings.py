@@ -153,7 +153,11 @@ MEDIA_URL = '/media/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 print(f'STATIC_ROOT: ${STATIC_ROOT}')
 # location where you will store your static files
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'),
+    os.path.join(BASE_DIR, 'static', 'images'),
+    os.path.join(BASE_DIR, 'static', 'js'),
+    os.path.join(BASE_DIR, 'static', 'css'),
+    '/static']
 print(f'STATICFILES_DIRS: ${STATICFILES_DIRS}')
 # https://docs.djangoproject.com/en/dev/ref/settings/#static-root
 # STATIC_ROOT = str(BASE_DIR.joinpath('staticfiles'))
