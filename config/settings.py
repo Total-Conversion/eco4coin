@@ -7,11 +7,10 @@ import django_on_heroku
 # ------------------------------------------------------------------------------
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-print(f'BASE_DIR: ${BASE_DIR}')
 # https://docs.djangoproject.com/en/dev/ref/settings/#std:setting-SECRET_KEY
 
 # https://docs.djangoproject.com/en/dev/ref/settings/#debug
-DEBUG = os.environ.get('DEBUG', True)  # True
+DEBUG = os.environ.get('DEBUG', False)  # False
 # https://docs.djangoproject.com/en/dev/ref/settings/#allowed-hosts
 ALLOWED_HOSTS = ["localhost", "0.0.0.0", "127.0.0.1", "https://tdcm-django-test.herokuapp.com/"]
 
@@ -149,16 +148,19 @@ USE_TZ = True
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
+#location where django collect all static files
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+# location where you will store your static files
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 # https://docs.djangoproject.com/en/dev/ref/settings/#static-root
-STATIC_ROOT = str(BASE_DIR.joinpath('staticfiles'))
-print(f'STATICFILES_DIRS: ${STATIC_ROOT}')
+# STATIC_ROOT = str(BASE_DIR.joinpath('staticfiles'))
 # https://docs.djangoproject.com/en/dev/ref/settings/#static-url
 STATIC_URL = '/static/'
 # https://docs.djangoproject.com/en/dev/ref/contrib/staticfiles/#std:setting-STATICFILES_DIRS
-STATICFILES_DIRS = [str(BASE_DIR.joinpath('static'))]
-print(f'STATICFILES_DIRS: ${STATICFILES_DIRS}')
+# STATICFILES_DIRS = [str(BASE_DIR.joinpath('static'))]
 # http://whitenoise.evans.io/en/stable/django.html#add-compression-and-caching-support
-STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # DJANGO-CRISPY-FORMS CONFIGS
 # ------------------------------------------------------------------------------
@@ -278,4 +280,3 @@ except ImportError:
 #         }
 #     }
 # }
-
