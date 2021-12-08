@@ -7,7 +7,7 @@ import django_on_heroku
 # ------------------------------------------------------------------------------
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent
-print('BASE_DIR: ${BASE_DIR}')
+print(f'BASE_DIR: ${BASE_DIR}')
 # https://docs.djangoproject.com/en/dev/ref/settings/#std:setting-SECRET_KEY
 
 # https://docs.djangoproject.com/en/dev/ref/settings/#debug
@@ -151,15 +151,15 @@ MEDIA_URL = '/media/'
 
 #location where django collect all static files
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-print('STATIC_ROOT: ${STATIC_ROOT}')
+print(f'STATIC_ROOT: ${STATIC_ROOT}')
 # location where you will store your static files
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
-print('STATICFILES_DIRS: ${STATICFILES_DIRS}')
+print(f'STATICFILES_DIRS: ${STATICFILES_DIRS}')
 # https://docs.djangoproject.com/en/dev/ref/settings/#static-root
 # STATIC_ROOT = str(BASE_DIR.joinpath('staticfiles'))
 # https://docs.djangoproject.com/en/dev/ref/settings/#static-url
 STATIC_URL = '/static/'
-print('STATIC_URL: ${STATIC_URL}')
+print(f'STATIC_URL: ${STATIC_URL}')
 # https://docs.djangoproject.com/en/dev/ref/contrib/staticfiles/#std:setting-STATICFILES_DIRS
 # STATICFILES_DIRS = [str(BASE_DIR.joinpath('static'))]
 # http://whitenoise.evans.io/en/stable/django.html#add-compression-and-caching-support
