@@ -1,0 +1,68 @@
+{% extends "_base.html" %}
+
+{% block content %}
+
+
+    {% if user.is_staff %}
+        <table class="table">
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">CASH BALANCE</th>
+                <th scope="col">CASH LOCKED</th>
+                <th scope="col">COIN BALANCE</th>
+                <th scope="col">COIN LOCKED</th>
+                <th scope="col">WALLET ID</th>
+                <th scope="col">DATE JOINED</th>
+
+            </tr>
+            {% for element in object_list %}
+            <tr>
+                <td>{{ element.id }}</td>
+                <td style="color: green ">{{ element.cash_balance }}</td>
+                <td style="color: red">{{ element.cash_locked }}</td>
+                <td style="color: green">{{ element.coin_balance }}</td>
+                <td style="color: red">{{ element.coin_locked }}</td>
+                <td>{{ element.wallet_id }}</td>
+                <td>{{ element.date_joined }}</td>
+            </tr>
+            {% endfor %}
+
+
+        <ul class="pagination">
+            <li class="page-item">
+                        <a class="page-link" href="{% url 'csv_simple_write' %}">Download all to CSV</a>
+            </li>
+        {% if page_obj.has_other_pages %}
+            </ul>
+            <ul class="pagination">
+                {% if page_obj.has_previous %}
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{ page_obj.previous_page_number }}">&laquo;</a>
+                    </li>
+                {% else %}
+                    <li class="page-item"><span class="page-link">&laquo;</span></li>
+                {% endif %}
+{#                {% for i in page_obj.paginator.page_range %}#}
+                    <li class="page-item">
+                        <span class="page-link">
+                            <a>
+                                Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+                            </a>
+                        </span>
+                    </li>
+{#                {% endfor %}#}
+                {% if page_obj.has_next %}
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{ page_obj.next_page_number }}">&raquo;</a>
+                    </li>
+                {% else %}
+                    <li class="disabled"><span class="page-link">&raquo;</span></li>
+                {% endif %}
+            </ul>
+        {% endif %}
+
+    {% else %}
+        <p class="text-lg-center font-weight-bold"> Only staff can open it.</p>
+    {% endif %}
+
+{% endblock %}
