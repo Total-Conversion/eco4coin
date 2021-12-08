@@ -13,7 +13,7 @@ print(f'BASE_DIR: ${BASE_DIR}')
 # https://docs.djangoproject.com/en/dev/ref/settings/#debug
 DEBUG = os.environ.get('DEBUG', False)  # False
 # https://docs.djangoproject.com/en/dev/ref/settings/#allowed-hosts
-ALLOWED_HOSTS = ["localhost", "0.0.0.0", "127.0.0.1", "https://eco4coin.herokuapp.com/"]
+ALLOWED_HOSTS = ["localhost", "0.0.0.0", "127.0.0.1", "https://tdcm-django-test.herokuapp.com/"]
 
 # APPS
 # ------------------------------------------------------------------------------
@@ -164,7 +164,7 @@ print(f'STATIC_URL: ${STATIC_URL}')
 # STATICFILES_DIRS = [str(BASE_DIR.joinpath('static'))]
 # http://whitenoise.evans.io/en/stable/django.html#add-compression-and-caching-support
 
-STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+STATICFILES_STORAGE = 'config.storage.WhiteNoiseStaticFilesStorage'
 
 # DJANGO-CRISPY-FORMS CONFIGS
 # ------------------------------------------------------------------------------
