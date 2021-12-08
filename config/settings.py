@@ -6,7 +6,7 @@ import django_on_heroku
 # GENERAL
 # ------------------------------------------------------------------------------
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent
+BASE_DIR = Path(__file__).resolve().parent.parent
 print(f'BASE_DIR: ${BASE_DIR}')
 # https://docs.djangoproject.com/en/dev/ref/settings/#std:setting-SECRET_KEY
 
